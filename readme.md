@@ -75,12 +75,7 @@ syscall
 ```
 
 <h4>Reference</h4>
-<p>[NASMチュートリアル][1]</p>
-[macOSシステムコール][2]
-[syamashiさん作][3]
-[ywakeさん作][4]
-
-[1]:https://cs.lmu.edu/~ray/notes/nasmtutorial/
-[2]:https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master
-[3]:https://note.com/syamashi/n/na7c4aeb5f2db
-[4]:https://zenn.dev/wake/articles/13114fd46affd2c38d88
+<p>[NASMチュートリアル: https://cs.lmu.edu/~ray/notes/nasmtutorial/</p>
+<p>macOSシステムコール: https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master</p>
+<p>syamashiさん作: https://note.com/syamashi/n/na7c4aeb5f2db</p>
+<p>ywakeさん作: https://zenn.dev/wake/articles/13114fd46affd2c38d88</p>
