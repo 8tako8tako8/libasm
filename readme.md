@@ -1,6 +1,7 @@
 <h3>libasm</h3>
-標準ライブラリのいくつかをIntel記法64bitアセンブリで書く課題。(mac環境)
+<p>標準ライブラリのいくつかをIntel記法64bitアセンブリで書く課題。(mac環境)</p>
 自作する関数は、プロトタイプ宣言。
+
 ```
 size_t      ft_strlen(const char *s);
 char        *ft_strcpy(char *dst, const char *src);
@@ -9,6 +10,7 @@ ssize_t     ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t     ft_read(int fildes, const void *buf, size_t nbyte);
 char        *ft_strdup(const char *s1);
 ```
+
 今回実装した*.sファイルは、gccの中間生成物。
 普段のコンパイルでは、.c -> .s -> -> .o -> a.out
 
@@ -72,8 +74,8 @@ call    function
 syscall
 ```
 
-<h5>Reference</h5>
-[macOSのシステムコール](https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master)
+<h4>Reference</h4>
+[macOS](https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master)
 [NASMチュートリアル](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
 [syamashiさん作](https://note.com/syamashi/n/na7c4aeb5f2db)
 [ywakeさん作](https://zenn.dev/wake/articles/13114fd46affd2c38d88)
