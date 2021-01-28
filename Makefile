@@ -21,7 +21,7 @@ $(NAME) : $(OBJS)
 
 all	: $(NAME)
 
-grademe : all
+test : all
 	$(CC) $(CFLAGS) -L. -lasm $(INCLUDE) $(NAME) main.c -o libasm -fsanitize=address -g
 	./libasm
 

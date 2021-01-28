@@ -1,6 +1,6 @@
 <h3>libasm</h3>
 <p>標準ライブラリのいくつかをIntel記法64bitアセンブリで書く課題。(mac環境)</p>
-自作する関数は、プロトタイプ宣言。
+自作する関数のプロトタイプ宣言。
 
 ```
 size_t      ft_strlen(const char *s);
