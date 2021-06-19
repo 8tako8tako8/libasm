@@ -22,14 +22,14 @@ $(NAME) : $(OBJS)
 all	: $(NAME)
 
 test : all
-	$(CC) $(CFLAGS) -L. -lasm $(INCLUDE) $(NAME) main.c -o libasm -fsanitize=address -g
+	$(CC) $(CFLAGS) -L. -lasm $(INCLUDE) $(NAME) main.c -o libasm
 	./libasm
 
 clean :
 	$(RM) $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) libasm
 
 re : fclean all
 

@@ -1,18 +1,18 @@
-extern	___error
+extern ___error
 section .text
-	global	_ft_read
+    global  _ft_read
 
 _ft_read:
-	; ssize_t	ft_read(int fildes, const void *buf, size_t nbyte)
-	mov	rax, 0x2000003
-	syscall
-	jc	_error			; rax = errno
-	ret
+    ; ssize_t ft_read(int fildes, const void *buf, size_t nbyte)
+    mov     rax, 0x2000003  ; readシステムコール呼び出し用
+    syscall
+    jc      _error          ; rax = errno
+    ret
 
 _error:
-	push	rax			; save errno
-	call	___error		; retrieve address to errno
-	pop	rdi
-	mov	[rax], rdi		; put errno in return value of __error (pointer to errno)
-	mov	rax, -1
-	ret
+    push    rax             ; errnoの保存
+    call    ___error        ; errnoへのアドレスを取得
+    pop     rdi             ; 保存しておいたerrnoを取得
+    mov     [rax], rdi      ; __errorの戻り値にerrnoへのアドレスを入れる
+    mov     rax, -1         ; 戻り値に-1を代入
+    ret

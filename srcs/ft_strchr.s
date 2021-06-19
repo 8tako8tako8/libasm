@@ -2,12 +2,12 @@ section .text
     global _ft_strchr
 
 _ft_strchr:
-    ; char  *ft_strchr(const char *s, int c)
-    mov rdx, 0
-    jmp .loop
+    ; char *ft_strchr(const char *s, int c)
+    xor rdx, rdx                ; 0に初期化
+    jmp .loop                   ; loopに飛ぶ
 
 .loop:
-    cmp BYTE[rdi + rdx], sil
+    cmp BYTE[rdi + rdx], sil    ; c='\0'の時のための比較
     je  .exit
     cmp BYTE[rdi + rdx], 0
     je  .error

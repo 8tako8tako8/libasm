@@ -28,18 +28,19 @@ int main()
 	printf("[honke: %s], [zisaku: %s]\n\n", cpy1, cpy2);
 
 	printf("------------ strcmp -------------\n");
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("abc", "abx"), ft_strcmp("abc", "abx"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("abc", "abc"), ft_strcmp("abc", "abc"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("abc", "abb"), ft_strcmp("abc", "abb"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("abb", "abc"), ft_strcmp("abb", "abc"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("abc", ""), ft_strcmp("abc", ""));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("", "abc"), ft_strcmp("", "abc"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("", ""), ft_strcmp("", ""));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("\xff\xff", "\xff"), ft_strcmp("\xff\xff", "\xff"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("\xff", ""), ft_strcmp("\xff", ""));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("\xff", "\xff\xff"), ft_strcmp("\xff", "\xff\xff"));
-	printf("[honke: %d], [zisaku: %d]\n\n", strcmp("\xfe", "\xfe\xff"), ft_strcmp("\xfe", "\xfe\xff"));
+	char cmp1[] = "abc";
+	char cmp2[] = "abx";
+	char cmp3[] = "abb";
+	char cmp4[] = "";
 	
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp1, cmp2), ft_strcmp(cmp1, cmp2));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp1, cmp1), ft_strcmp(cmp1, cmp1));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp1, cmp3), ft_strcmp(cmp1, cmp3));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp3, cmp1), ft_strcmp(cmp3, cmp1));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp1, cmp4), ft_strcmp(cmp1, cmp4));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp4, cmp1), ft_strcmp(cmp4, cmp1));
+	printf("[honke: %d], [zisaku: %d]\n\n", strcmp(cmp4, cmp4), ft_strcmp(cmp4, cmp4));
+
 	printf("------------ write -------------\n");
 	int	 count;
 	
@@ -107,31 +108,65 @@ int main()
 	printf("------------ read -------------\n");
 	char	buf1[100] = {};
 	char	buf2[100] = {};
-	char	buf3[100] = {};
-	char	buf4[100] = {};
 	int	 size = 0;
 
 	errno = 0;
-	fd = open("read_1.txt", O_RDONLY);
-	size = read(fd, buf1, 10);
+	if ((fd = open("read_1.txt", O_RDONLY)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
+	if ((size = read(fd, buf1, 10)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
 	printf("read: [%s], size: %d, errno: %d\n", buf1, size, errno);
-	close(fd);
-	errno = 0;
-	fd = open("read_1.txt", O_RDONLY);
-	size = ft_read(fd, buf2, 10);
-	printf("ft_read: [%s], size: %d, errno: %d\n", buf2, size, errno);
 	close(fd);
 
 	errno = 0;
-	fd = open("not_exist.txt", O_RDONLY);
-	size = read(fd, buf3, 10);
+	if ((fd = open("read_1.txt", O_RDONLY)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
+	if ((size = ft_read(fd, buf2, 10)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
+	printf("ft_read: [%s], size: %d, errno: %d\n", buf2, size, errno);
+	close(fd);
+
+	//char	buf3[100] = {};
+	//char	buf4[100] = {};
+	/* errno = 0;
+	if ((fd = open("not_exist.txt", O_RDONLY)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
+	if ((size = read(fd, buf3, 10)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
 	printf("read: [%s], size: %d, errno: %d\n", buf3, size, errno);
-	close(fd);
-	errno = 0;
-	fd = open("not_exist.txt", O_RDONLY);
-	size = ft_read(fd, buf4, 10);
+	close(fd); */
+
+	/* errno = 0;
+	if ((fd = open("not_exist.txt", O_RDONLY)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
+	if ((size = ft_read(fd, buf4, 10)) < 0)
+	{
+		strerror(errno);
+		return (0);
+	}
 	printf("ft_read: [%s], size: %d, errno: %d\n", buf4, size, errno);
-	close(fd);
+	close(fd); */
 
 	printf("------------ strdup -------------\n");
 	char	*dup1;
@@ -150,6 +185,8 @@ int main()
 	dup2 = ft_strdup("");
 	printf("zisaku: [%s]\n", dup2);
 	free(dup2);
+
+	printf("\n");
 
 	return (0);
 }

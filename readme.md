@@ -77,5 +77,6 @@ syscall
 <h4>Reference</h4>
 <p>[NASMチュートリアル: https://cs.lmu.edu/~ray/notes/nasmtutorial/</p>
 <p>macOSシステムコール: https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master</p>
+<p>Linuxで64bitアセンブリプログラミング: https://www.mztn.org/lxasm64/amd04.html</p>
 <p>syamashiさん作: https://note.com/syamashi/n/na7c4aeb5f2db</p>
 <p>ywakeさん作: https://zenn.dev/wake/articles/13114fd46affd2c38d88</p>
